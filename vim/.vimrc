@@ -7,11 +7,12 @@ set shortmess+=I " Disable the default Vim startup message
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set number              " show line numbers
 set ruler               " show the cursor position all the time
+set wrap                " wrap long lines
+set linebreak           " Have lines wrap instead of continue off-screen
 syntax on               " turn on syntax highlighting
 " toggle relative numbering
 nnoremap <C-n> :set rnu!<CR>
 set showcmd             " show command in bottom bar
-" set cursorline          " highlight current line
 " highlight current line, but only in active window
 augroup CursorLineOnlyInActiveWindow
     autocmd!
@@ -19,8 +20,8 @@ augroup CursorLineOnlyInActiveWindow
     autocmd WinLeave * setlocal nocursorline
 augroup END
 
-filetype indent on      " load filetype specific indent files
 set autoindent
+filetype indent on      " load filetype specific indent files
 filetype plugin on      " load filetype specific plugin files
 set wildmenu            " visual autocomplete for command menu
 set showmatch           " highlight matching [{()}]
@@ -29,7 +30,6 @@ set mouse+=a            " A necessary evil, mouse support
 set noerrorbells visualbell t_vb=    " Disable annoying error noises
 set splitbelow          " Open new vertical split bottom
 set splitright          " Open new horizontal splits right
-set linebreak           " Have lines wrap instead of continue off-screen
 set scrolloff=12        " Keep cursor in approximately the middle of the screen
 
 " Sensible stuff
@@ -52,7 +52,7 @@ nnoremap <C-h> :nohlsearch<cr>
 set tabstop=4       " number of visual spaces per TAB
 set softtabstop=4   " number of spaces in tab when editing
 set shiftwidth=4    " insert 4 spaces on a tab
-set expandtab       " tabs are spaces, mainly because of python
+set expandtab       " Turn tabs into spaces when saving
 
 
 " Try to prevent bad habits like using the arrow keys for movement. This is
