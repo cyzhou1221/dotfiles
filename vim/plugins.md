@@ -1,0 +1,5 @@
+- ctrlp.vim: https://github.com/ctrlpvim/ctrlp.vim
+- nerdtree: https://github.com/preservim/nerdtree
+- vim-fugitive: https://github.com/tpope/vim-fugitive
+- vim-commentary: https://github.com/tpope/vim-commentary
+- vim-airline: https://github.com/vim-airline/vim-airline
