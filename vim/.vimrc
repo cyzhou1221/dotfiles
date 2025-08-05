@@ -9,7 +9,7 @@ set number              " show line numbers
 set ruler               " show the cursor position all the time
 set wrap                " wrap long lines
 set linebreak           " Have lines wrap instead of continue off-screen
-syntax on               " turn on syntax highlighting
+" syntax on               " turn on syntax highlighting
 " toggle relative numbering
 nnoremap <C-n> :set rnu!<CR>
 set showcmd             " show command in bottom bar
@@ -21,8 +21,8 @@ augroup CursorLineOnlyInActiveWindow
 augroup END
 
 set autoindent
-filetype indent on      " load filetype specific indent files
-filetype plugin on      " load filetype specific plugin files
+" filetype indent on      " load filetype specific indent files
+" filetype plugin on      " load filetype specific plugin files
 set wildmenu            " visual autocomplete for command menu
 set showmatch           " highlight matching [{()}]
 set laststatus=2        " Show the status line at the bottom
@@ -85,6 +85,19 @@ let g:molokai_original = 0
 let mapleader = " "
 inoremap jj <esc>
 
+" Plugins
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+call plug#begin()
+
+" List your plugins here
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'preservim/nerdtree'
+Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+call plug#end()
 
 " Plugin configuration
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -131,3 +144,4 @@ let $LOCALFILE=expand("~/.vimrc_local")
 if filereadable($LOCALFILE)
     source $LOCALFILE
 endif
+
