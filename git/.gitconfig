@@ -1,9 +1,0 @@
-[user]
-	email = cyzhou1221@qq.com
-	name = changyu
-[alias]
-	graph = log --all --graph --decorate --oneline
-	co = checkout
-	br = branch
-	ci = commit
-	st = status
