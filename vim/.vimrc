@@ -37,7 +37,7 @@ set scrolloff=12        " Keep cursor in approximately the middle of the screen
 set backspace=indent,eol,start     " Make backspace behave in a more intuitive way
 nmap Q <Nop>
 
-"Searching
+" Searching
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
@@ -91,51 +91,58 @@ call plug#begin()
 
 " List your plugins here
 Plug 'ctrlpvim/ctrlp.vim'
+    let g:ctrlp_map = '<c-p>'
+    let g:ctrlp_cmd = 'CtrlP'
+
+    let g:ctrlp_working_path_mode = 'ra'
+    let g:ctrlp_root_markers = ['pom.xml', '.p4ignore']
+
+    let g:ctrlp_switch_buffer = 'et'
+
+    " Ignore files for completion
+    set wildignore+=*/tmp/*,*/.git/*,*/tmp/*,*.swp,*.zip,*.so  " Linux
+    " set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe              " Windows
+
+    " Exclude files and directories
+    let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+    let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+    \ 'file': '\v\.(exe|so|dll)$',
+    \ 'link': 'some_bad_symbolic_links',
+    \ }
+
+    let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
+    let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'  " Windows
+    " Ignore files in .gitignore
+    let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+
 Plug 'preservim/nerdtree'
+    nnoremap <Leader>n :NERDTreeToggle<CR>
+    " find the current file in NERDTree
+    nnoremap <Leader>f :NERDTreeFind<CR>
+
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+    nnoremap <Leader>g :Git<CR>
+
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'sirver/ultisnips'
+    let g:UltiSnipsExpandTrigger = '<tab>'
+    let g:UltiSnipsJumpForwardTrigger = '<tab>'
+    let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+
+Plug 'lervag/vimtex'
+    let g:tex_flavor='latex'
+    let g:vimtex_view_method='zathura'
+    let g:vimtex_quickfix_mode=0
+
+Plug 'KeitaNakamura/tex-conceal.vim'
+    set conceallevel=1
+    let g:tex_conceal='abdmg'
+    hi Conceal ctermbg=none
 
 call plug#end()
-
-" Plugin configuration
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" nerdtree
-nnoremap <Leader>n :NERDTreeToggle<CR>
-" find the current file in NERDTree
-nnoremap <Leader>f :NERDTreeFind<CR>
-
-" fugitive
-nnoremap <Leader>g :Git<CR>
-
-" ctrlp
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_root_markers = ['pom.xml', '.p4ignore']
-
-let g:ctrlp_switch_buffer = 'et'
-
-" Ignore files for completion
-set wildignore+=*/tmp/*,*/.git/*,*/tmp/*,*.swp,*.zip,*.so  " Linux
-" set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe              " Windows
-
-" Exclude files and directories
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
-
-let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
-let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'  " Windows
-
-" Ignore files in .gitignore
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-
 
 " Local customizations
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
