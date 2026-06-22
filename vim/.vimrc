@@ -126,22 +126,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
     nnoremap <Leader>g :Git<CR>
 
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'sirver/ultisnips'
-    let g:UltiSnipsExpandTrigger = '<tab>'
-    let g:UltiSnipsJumpForwardTrigger = '<tab>'
-    let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
-
-Plug 'lervag/vimtex'
-    let g:tex_flavor='latex'
-    let g:vimtex_view_method='zathura'
-    let g:vimtex_quickfix_mode=0
-
-Plug 'KeitaNakamura/tex-conceal.vim'
-    set conceallevel=1
-    let g:tex_conceal='abdmg'
-    hi Conceal ctermbg=none
-
 call plug#end()
 
 " Local customizations
