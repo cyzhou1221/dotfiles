@@ -1,5 +1,8 @@
 #!/bin/bash
 
+
+sudo apt install curl vim -y
+
 # 复制脚本文件
 cp -r ./scripts ~/
 
