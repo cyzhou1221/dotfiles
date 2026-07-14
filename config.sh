@@ -5,6 +5,9 @@ sudo apt install curl vim -y
 
 # 复制脚本文件
 cp -r ./scripts ~/
+chmod +x ~/scripts/proxy.sh
+echo "alias proxy='~/scripts/proxy.sh'" >> ~/.bashrc
+source ~/.bashrc
 
 # 复制 git 配置文件
 cp ./git/.gitconfig ~/
